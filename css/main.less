@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+//------------------------------------------------------------------------------
+
+// Variables
+
+// ------------------------------------------------------------------------------
+
+@min: 0%;
+@max: 100%;
+@font: 'Comfortaa', cursive;
+@main-font-color: #2f2f2f;
+
+//--------------------------
+// Media Queries
+// -------------------------
+
+@smartphone-all: ~"only screen and (max-width: 479px) and (orientation: portrait)";
+@smartphone-all-landscape: ~"only screen and (max-width: 736px) and (orientation: landscape)";
+@smartphone-small: ~"only screen and (max-width: 330px) and (orientation: portrait)";
+@smartphone: ~"only screen and (min-width: 330px) and (max-width: 400px) and (orientation: portrait)";
+@smartphone-medium: ~"only screen and (min-width: 400px) and (max-width: 413px) and (orientation: portrait)";
+@smartphone-big: ~"only screen and (min-width: 413px) and (max-width: 479px) and (orientation: portrait)";
+@tablet-small: ~"only screen and (min-width: 760px) and (max-width: 1024px) and (orientation: portrait)";
+@tablet-big: ~"only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait)";
+@iPad-landscape: ~"only screen and (width: 1024px) and (height: 768px) and (orientation: landscape)";
+@big-screen: ~"only screen and (min-width: 1900px)";
+
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+
+// Classes
+
+// ------------------------------------------------------------------------------
+
+.nobound {
+  margin: @min;
+  padding: @min;
+}
+
+.fs {
+  width: @max;
+  height: @max;
+}
+
+.display (@value: block) {
+  display: @value;
+}
+
+.position (@pos: absolute) {
+  position: @pos;
+}
+
+.aligntext (@align: center) {
+  text-align: @align;
+}
+
+/*   Mixin for perfect absolute positioning - centering    */
+.p-center {
+  .position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rel {
+  .position(relative);
+}
+
+.abs {
+  .position;
+}
+
+.bg-setup {
+  background-position:  center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  -ms-content-zooming: none;
+}
+
+//-------------------------------------------------------------
+
+body, html, div, span, p, a, img, header, footer, span, ul, li, section, nav, aside, article, figure, figcaption, h1, h2, h3, h4, h5, h6, i {
+  .display;
+  .nobound;
+  //outline: red 1px solid;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+html, body {
+  .fs;
+  background-image: url(../assets/bg.jpg);
+  .bg-setup;
+  color: @main-font-color;
+  font-family: @font;
+  font-size: @max;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+//-------------------------------------------------------------
+
+//                        Main CSS
+
+//-------------------------------------------------------------
+
+body {
+
+
+  main {
+
+  }
+
+  footer {
+      .position(fixed);
+      bottom: 0%;
+      width: 100%;
+      height: auto;
+      min-height: 5em;
+
+      #holder {
+        .p-center;
+        .display(inline);
+        background: rgba(50, 50, 50, 0.6);
+        border-radius: 10px 10px 0px 0px;
+        border: 0.25px black solid;
+        box-shadow: rgba(0, 0, 0, 1) 0px 0px 5px;
+
+        height: auto;
+        width: auto;
+        max-width: 100%;
+        padding: 1% 1% 2%;
+
+        #holder-content {
+          .display(inline-block);
+          width: 100%;
+          height: auto;
+          outline: 1px green solid;
+
+          .holder-item {
+            .nobound;
+            .display(inline-block);
+            width: 5.5em;
+            height: 5em;
+            outline: 1px green solid;
+
+            .holder-item-content {
+              .nobound;
+              width: 5em;
+              height: 100%;
+              margin: auto;
+              outline: 1px red solid;
+            }
+          }
+
+          .holder-item-divider {
+            .nobound;
+            .display(inline-block);
+            width: 4.5em;
+            height: 4em;
+            outline: 1px yellow solid;
+          }
+        }
+      }
+  }
+}
