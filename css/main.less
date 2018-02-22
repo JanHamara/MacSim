@@ -10,7 +10,7 @@
 
 @min: 0%;
 @max: 100%;
-@font: 'Comfortaa', cursive;
+@font: Arial, cursive;
 @main-font-color: #2f2f2f;
 
 //--------------------------
@@ -90,7 +90,7 @@
 body, html, div, span, p, a, img, header, footer, span, ul, li, section, nav, aside, article, figure, figcaption, h1, h2, h3, h4, h5, h6, i {
   .display;
   .nobound;
-  //outline: red 1px solid;
+  outline: red 1px solid;
 
   &:focus {
     border: none;
@@ -115,8 +115,82 @@ html, body {
 
 //-------------------------------------------------------------
 
+.opa {
+  opacity: 0.4;
+}
+
 body {
 
+  header {
+    .position(fixed);
+    top: 0;
+    width: 100%;
+    height: 25px;
+    color: white;
+    background: rgba(65, 60, 65, 1);
+    font-size: 100%;
+    font-weight: 100;
+    cursor: default;
+
+    .container-fluid {
+      .fs;
+      .nobound;
+
+      .row {
+        .fs;
+        .nobound;
+
+        .col-lg-6 {
+          .nobound;
+          height: 25px;
+
+          .apple-button, .main-button, .main-list {
+            .display(inline-block);
+            height: 25px;
+            width: auto;
+          }
+
+          .apple-button {
+            margin-left: 1%;
+            width: 2em;
+
+            &:hover {
+              background: cornflowerblue;
+            }
+          }
+
+          .main-button {
+            font-weight: bold;
+            font-size: 90%;
+            padding: 0.25% 2%;
+
+            &:hover {
+              background: cornflowerblue;
+            }
+
+            span {
+            }
+          }
+
+          .main-list {
+
+            ul {
+              width: auto;
+
+              li {
+                .display(inline);
+                padding: 2% 5%;
+
+                &:hover {
+                  background: cornflowerblue;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
   main {
 
@@ -127,11 +201,13 @@ body {
       bottom: 0%;
       width: 100%;
       height: auto;
-      min-height: 5em;
+      min-height: 3em;
 
       #holder {
         .p-center;
         .display(inline);
+
+        // Design
         background: rgba(50, 50, 50, 0.6);
         border-radius: 10px 10px 0px 0px;
         border: 0.25px black solid;
@@ -146,30 +222,50 @@ body {
           .display(inline-block);
           width: 100%;
           height: auto;
-          outline: 1px green solid;
 
           .holder-item {
             .nobound;
             .display(inline-block);
-            width: 5.5em;
-            height: 5em;
-            outline: 1px green solid;
+            width: 3.5em;
+            height: 3em;
+            transition: transform 0.25s, width 0.25s;
+
+            &:hover {
+              transition: transform 0.25s, width 0.25s;
+            }
 
             .holder-item-content {
               .nobound;
-              width: 5em;
-              height: 100%;
+              width: 3em;
+              height: 3em;
               margin: auto;
-              outline: 1px red solid;
+
+              .holder-icon {
+                transition: transform 1s;
+
+                &:hover {
+                  transition: transform 1s;
+                }
+              }
+
+              .icon-square {
+                width: 3em;
+                height: 3em;
+                border-radius: 3px;
+              }
+
+              .icon-circle {
+                width: 3em;
+                height: 3em;
+              }
             }
           }
 
           .holder-item-divider {
             .nobound;
             .display(inline-block);
-            width: 4.5em;
+            width: 3.5em;
             height: 4em;
-            outline: 1px yellow solid;
           }
         }
       }
